@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>LayOut</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            width: 1000px;
+            margin: 0 auto;
+            min-height: 600px;
+            background-color: #CCC;
+        }
+        header {
+            background-color: rgb(179, 179, 25);
+            height: 150px;
+            position: relative;
+        }
+        nav {
+            height: 60px;
+            background-color: #333;
+            color: #FFF;
+        }
+        ul li {
+            display: inline-block;
+            padding: 5px 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #FFF;
+        }
+        li:hover {
+            text-decoration: underline;
+            background-color: rgb(195, 196, 191);
+            color: #F00;
+            border-radius: 9px;
+        }
+        #content {
+            background-color: whitesmoke;
+            min-height: 400px;
+            width: 790px;
+            float: left;
+            padding: 5px;
+        }
+        #right {
+            background-color: yellow;
+            min-height: 400px;
+            width: 200px;
+            float: right;
+        }
+        footer {
+            background-color: rgb(179, 179, 25);
+            color: #FFF;
+            height: 30px;
+            text-align: center;
+            clear: both;
+            margin: 5px 0 0 0;
+            padding: 10px 0 0 0;
+        }
+    </style>
+</head>
+<body>
+    <!--Thùng chứa-->
+    <div id="container">
+        <header>
+            <h1>HEADER</h1>
+            <div style="position:absolute; top:5px; right:5px;">
+                <img src="images/facebook.png" width="32" height="32" alt="img1" />
+                <img src="images/google_plus.png" width="32" height="32" alt="img2" />
+                <img src="images/youtube.png" width="32" height="32" alt="img3" />
+                <img src="images/yahoo.png" width="32" height="32" alt="img4" />
+            </div>
+        </header>
+        <!--Menu ngang-->
+        <nav>
+            <div style="float:left;">
+                <ul>
+                    <li><a href="#"><span style="color: red">Home</span></a></li>
+                    <li><a href="#"><span style="color: red">About Us</span></a></li>
+                    <li><a href="#"><span style="color: red">Products</span></a></li>
+                    <li><a href="#"><span style="color: red">FeedBack</span></a></li>
+                    <li><a href="#"><span style="color: red">Contact Us</span></a></li>
+                    <li><a href="#"><span style="color: red">FAQs</span></a></li>
+                    <li><a href="#"><span style="color: red">Site Map</span></a></li>
+                </ul>
+            </div>
+           
+            <div style="clear:both;"></div>
+        </nav>
+        <!--Phần nội dung-->
+        <div id="content">
+            Nội dung
+        </div>
+        <div id="right">MENU PHẢI</div>
+        <footer>
+            Bản quyền thuộc về NguyenKimThuyHuong&reg;
+        </footer>
+    </div>
+</body>
+</html>

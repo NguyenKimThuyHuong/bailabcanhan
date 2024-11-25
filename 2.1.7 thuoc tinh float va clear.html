@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .float-left {
+            float: left;
+            width: 200px;
+            height: 100px;
+            background-color: #444;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        .float-right {
+            float: right;
+            width: 200px;
+            height: 100px;
+            background-color: #666;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            margin-left: 20px;
+            border-radius: 5px;
+        }
+        .no-float {
+            clear: both;
+            width: 200px;
+            height: 100px;
+            background-color: #888;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+        p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="float-left">float:left</div>
+    <p>The float CSS property specifies that an element should be taken from the normal flow and placed along the left or right side of its container, where text and inline elements will wrap around it.</p>
+    <div class="float-right">float:right</div>
+    <p>The float CSS property specifies that an element should be taken from the normal flow and placed along the left or right side of its container, where text and inline elements will wrap around it.</p>
+    <p>Without floating, the inline-block elements float like words in a text and block elements just do not float and stay in a vertical block of full width.</p>
+    <div class="no-float">no floating block</div>
+    <p>Without floating, the inline-block elements float like words in a text and block elements just do not float and stay in a vertical block of full width.</p>
+</body>
+</html>

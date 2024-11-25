@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu ngang 2 cap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #fffacd; 
+        }
+        .menu_ngang {
+            background-color: #fdd835; 
+            padding: 10px;
+        }
+        .menu_ngang ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .menu_ngang ul li {
+            position: relative;
+            margin-right: 20px;
+        }
+        .menu_ngang ul li a {
+            text-decoration: none;
+            color: #000;
+            padding: 5px 10px;
+            display: block;
+        }
+        .menu_ngang ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffecb3; 
+            padding: 0;
+        }
+        .menu_ngang ul li ul li {
+            width: 150px;
+        }
+        .menu_ngang ul li:hover ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu_ngang">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+            <li>
+                <a href="#">Sản phẩm</a>
+                <ul>
+                    <li><a href="#">Tivi</a></li>
+                    <li><a href="#">Tủ lạnh</a></li>
+                    <li><a href="#">Laptop</a></li>
+                    <li><a href="#">Máy tính bảng</a></li>
+                    <li><a href="#">Điện thoại</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+</body>
+</html>

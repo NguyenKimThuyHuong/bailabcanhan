@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hieu ung hover voi drop cap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .drop-cap {
+            float: left;
+            font-size: 3em;
+            line-height: 1;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        .columns {
+            column-count: 3;
+            column-gap: 20px;
+            column-rule: 1px solid #ccc;
+        }
+        p {
+            text-align: justify;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            display: inline-block;
+            padding: 10px;
+            transition: transform 0.3s;
+        }
+        li a:hover {
+            -webkit-transform: rotate(-10deg) scale(2);
+            transform: rotate(-10deg) scale(2);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">Hover me!</a></li>
+        <li><a href="#">Hover me!</a></li>
+        <li><a href="#">Hover me!</a></li>
+        <li><a href="#">Hover me!</a></li>
+    </ul>
+</body>
+</html>
