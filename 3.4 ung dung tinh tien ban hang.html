@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng Dụng Tính Tiền Bán Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffe0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #f1c40f;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .input-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #f1c40f;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e2b007;
+        }
+
+        #totalAmount {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ứng Dụng Tính Tiền Bán Hàng</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên Hàng Hóa</th>
+                    <th>Số Lượng Có</th>
+                    <th>Số Lượng Mua</th>
+                    <th>Đơn Giá</th>
+                    <th>Chọn Mua</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>CPU</td>
+                    <td>10</td>
+                    <td><input type="number" id="quantityCPU" min="0" max="10" disabled></td>
+                    <td>120 $</td>
+                    <td><input type="checkbox" id="selectCPU" onchange="toggleInput('CPU')"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>HDD</td>
+                    <td>14</td>
+                    <td><input type="number" id="quantityHDD" min="0" max="14" disabled></td>
+                    <td>80 $</td>
+                    <td><input type="checkbox" id="selectHDD" onchange="toggleInput('HDD')"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>RAM</td>
+                    <td>12</td>
+                    <td><input type="number" id="quantityRAM" min="0" max="12" disabled></td>
+                    <td>29 $</td>
+                    <td><input type="checkbox" id="selectRAM" onchange="toggleInput('RAM')"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>ROM</td>
+                    <td>23</td>
+                    <td><input type="number" id="quantityROM" min="0" max="23" disabled></td>
+                    <td>130 $</td>
+                    <td><input type="checkbox" id="selectROM" onchange="toggleInput('ROM')"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="input-section">
+            <button onclick="calculateTotal()">OK</button>
+            <label><input type="checkbox" id="vatCheckbox"> VAT</label>
+            <button onclick="resetForm()">Nhập Lại</button>
+        </div>
+        <p>Tổng cộng: <span id="totalAmount">0 $</span></p>
+    </div>
+
+    <script>
+        function toggleInput(item) {
+            const checkbox = document.getElementById(`select${item}`);
+            const input = document.getElementById(`quantity${item}`);
+            input.disabled = !checkbox.checked;
+            if (!checkbox.checked) {
+                input.value = '';
+            }
+        }
+
+        function calculateTotal() {
+            let total = 0;
+            if (document.getElementById('selectCPU').checked) {
+                total += parseInt(document.getElementById('quantityCPU').value || 0) * 120;
+            }
+            if (document.getElementById('selectHDD').checked) {
+                total += parseInt(document.getElementById('quantityHDD').value || 0) * 80;
+            }
+            if (document.getElementById('selectRAM').checked) {
+                total += parseInt(document.getElementById('quantityRAM').value || 0) * 29;
+            }
+            if (document.getElementById('selectROM').checked) {
+                total += parseInt(document.getElementById('quantityROM').value || 0) * 130;
+            }
+            if (document.getElementById('vatCheckbox').checked) {
+                total *= 1.1;
+            }
+            document.getElementById('totalAmount').textContent = total.toFixed(2) + ' $';
+        }
+
+        function resetForm() {
+            document.querySelectorAll('input[type=number]').forEach(input => input.value = '');
+            document.querySelectorAll('input[type=checkbox]').forEach(checkbox => checkbox.checked = false);
+            document.querySelectorAll('input[type=number]').forEach(input => input.disabled = true);
+            document.getElementById('totalAmount').textContent = '0 $';
+        }
+    </script>
+</body>
+</html>

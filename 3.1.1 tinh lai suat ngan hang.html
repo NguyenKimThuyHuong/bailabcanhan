@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Lãi Suất Ngân Hàng</title>
+    <style>
+        body {
+            background-color: #fff;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        h2 {
+            color: #FFD700;
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #FFD700;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #e6b800;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tính Lãi Suất Ngân Hàng</h2>
+        <label for="principal">Số tiền gửi (triệu đồng):</label>
+        <input type="number" id="principal" placeholder="Nhập số tiền gửi">
+        
+        <label for="rate">Lãi suất (%):</label>
+        <input type="number" id="rate" placeholder="Nhập lãi suất">
+        
+        <label for="years">Số năm gửi:</label>
+        <input type="number" id="years" placeholder="Nhập số năm gửi">
+        
+        <button onclick="calculateInterest()">Tính lãi suất</button>
+        
+        <div id="result"></div>
+    </div>
+    
+    <script>
+        function calculateInterest() {
+            
+            let principal = parseFloat(document.getElementById("principal").value);
+            let rate = parseFloat(document.getElementById("rate").value);
+            let years = parseInt(document.getElementById("years").value);
+            
+            if (isNaN(principal) || isNaN(rate) || isNaN(years)) {
+                document.getElementById("result").innerHTML = "Vui lòng nhập đầy đủ thông tin.";
+                return;
+            }
+            
+            // Tính lãi suất đơn giản
+            let interest = principal * rate * years / 100;
+            let totalAmount = principal + interest;
+            
+            // Hiển thị kết quả
+            document.getElementById("result").innerHTML = `Sau ${years} năm, số tiền sẽ là: ${totalAmount.toFixed(2)} triệu đồng`;
+        }
+    </script>
+</body>
+</html>

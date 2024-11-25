@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Số Ngày Trong Tháng</title>
+    <style>
+        body {
+            background-color: #fff;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        h2 {
+            color: black;
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #FFD700;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #e6b800;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tính Số Ngày Trong Tháng</h2>
+        <label for="month">Nhập số thứ tự của tháng (1-12):</label>
+        <input type="number" id="month" placeholder="Nhập số thứ tự của tháng">
+        <label for="year">Nhập năm:</label>
+        <input type="number" id="year" placeholder="Nhập năm">
+        <button onclick="calculateDaysInMonth()">Tính số ngày</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function calculateDaysInMonth() {
+            let month = parseInt(document.getElementById("month").value);
+            let year = parseInt(document.getElementById("year").value);
+            let days;
+            
+            if (isNaN(month) || month < 1 || month > 12) {
+                document.getElementById("result").innerHTML = "Vui lòng nhập tháng hợp lệ (1-12).";
+                return;
+            }
+            if (isNaN(year)) {
+                document.getElementById("result").innerHTML = "Vui lòng nhập năm hợp lệ.";
+                return;
+            }
+            
+            switch (month) {
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                    days = 31;
+                    break;
+                case 4: case 6: case 9: case 11:
+                    days = 30;
+                    break;
+                case 2:
+                    
+                    if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                        days = 29;
+                    } else {
+                        days = 28;
+                    }
+                    break;
+                default:
+                    days = 0;
+            }
+            
+            document.getElementById("result").innerHTML = "Tháng " + month + " năm " + year + " có " + days + " ngày.";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm Tra Năm Nhuận</title>
+    <style>
+        body {
+            background-color: #fff;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        h2 {
+            color: #FFD700;
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #FFD700;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #e6b800;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Kiểm Tra Năm Nhuận</h2>
+        <label for="year">Nhập năm cần kiểm tra:</label>
+        <input type="number" id="year" placeholder="Nhập năm">
+        <button onclick="checkLeapYear()">Kiểm tra</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function checkLeapYear() {
+            
+            let year = parseInt(document.getElementById("year").value);
+            
+            if (isNaN(year)) {
+                document.getElementById("result").innerHTML = "Vui lòng nhập một năm hợp lệ.";
+                return;
+            }
+            
+            // Kiểm tra năm nhuận
+            let isLeapYear = false;
+            if (year % 400 === 0) {
+                isLeapYear = true;
+            } else if (year % 4 === 0 && year % 100 !== 0) {
+                isLeapYear = true;
+            }
+            
+            // Hiển thị kết quả
+            if (isLeapYear) {
+                document.getElementById("result").innerHTML = year + " là năm nhuận.";
+            } else {
+                document.getElementById("result").innerHTML = year + " không phải là năm nhuận.";
+            }
+        }
+    </script>
+</body>
+</html>

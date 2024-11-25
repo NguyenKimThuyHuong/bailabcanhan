@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiệu Chỉnh Theo Sự Kiện Chuột</title>
+    <style>
+        body {
+            background-color: #fff;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        h2 {
+            color: #FFD700;
+            text-align: center;
+        }
+        .hover-div {
+            width: 90%;
+            padding: 15px;
+            text-align: center;
+            border: 2px dashed #FFD700;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        img {
+            width: 100%;
+            max-width: 250px;
+            transition: transform 0.3s;
+        }
+        .btn {
+            background-color: #FFD700;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .btn:hover {
+            background-color: #e6b800;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hiệu Chỉnh Theo Sự Kiện Chuột</h2>
+        
+        <!-- Div thay đổi nội dung khi di chuyển chuột vào -->
+        <div class="hover-div" id="hoverDiv">Hover Me</div>
+        
+        <!-- Hình ảnh thay đổi kích thước khi di chuyển chuột vào -->
+        <img id="image" src="https://via.placeholder.com/300" alt="Sample Image">
+        
+        <!-- Button hiển thị thông báo ngày giờ hiện tại -->
+        <button class="btn" onclick="showCurrentDateTime()">Hiển thị ngày giờ hiện tại</button>
+        
+        <!-- Textbox chuyển đổi thành chữ IN HOA -->
+        <input type="text" id="textInput" placeholder="Nhập vào đây...">
+        <button class="btn" onclick="convertToUpperCase()">Chuyển thành chữ IN HOA</button>
+    </div>
+    
+    <script>
+        // Thay đổi nội dung thẻ <div> khi di chuyển chuột vào
+        document.getElementById("hoverDiv").addEventListener("mouseover", function() {
+            this.innerHTML = "Mouse Event";
+        });
+        document.getElementById("hoverDiv").addEventListener("mouseout", function() {
+            this.innerHTML = "Hover Me";
+        });
+
+        // Thay đổi kích thước hình ảnh khi di chuyển chuột vào
+        document.getElementById("image").addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.1)";
+        });
+        document.getElementById("image").addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+        });
+
+        // Hiển thị thông báo ngày giờ hiện tại khi nhấn button
+        function showCurrentDateTime() {
+            let currentDateTime = new Date();
+            alert("Ngày giờ hiện tại: " + currentDateTime.toLocaleString());
+        }
+
+        // Chuyển nội dung trong textbox sang dạng chữ IN HOA
+        function convertToUpperCase() {
+            let textInput = document.getElementById("textInput");
+            textInput.value = textInput.value.toUpperCase();
+        }
+    </script>
+</body>
+</html>
