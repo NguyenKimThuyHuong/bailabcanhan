@@ -1,0 +1,45 @@
+.hh-header {
+    position: relative;
+    height: 170px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+}
+
+.hh-company {
+    font-family: Impact, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #333;
+}
+
+.hh-slogan {
+    font-size: 16px;
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    color: #777;
+}
+
+.hh-logo {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 100px;
+    height: auto;
+}
+
+.hh-cart,
+.hh-card {
+    margin-bottom: 15px;
+}
+
+.hh-product img {
+    max-height: 100px;
+    object-fit: cover;
+}
+
+.product-detail {
+    display: none;
+}
