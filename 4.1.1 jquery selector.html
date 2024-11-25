@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Web Tasks</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: #fff8e1; /* Màu trắng hơi vàng nhẹ */
+            color: #000;
+        }
+        table tr {
+            background-color: #fff8e1; /* Màu nền vàng nhạt cho các hàng */
+        }
+        table tr:hover {
+            background-color: #ffeb3b; /* Màu vàng đậm khi hover */
+        }
+        .vung {
+            background-image: url('path/to/image.jpg');
+            border: 1px solid #ffeb3b; /* Đường viền màu vàng */
+        }
+        .error {
+            border: 2px solid #ffeb3b; /* Đường viền lỗi màu vàng */
+        }
+        .notification {
+            background-color: #ffeb3b; /* Màu nền thông báo vàng */
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <img src="image1.jpg" alt="Hinh 1">
+        <img src="image2.jpg" alt="Hinh 2">
+    </div>
+
+    <select id="country">
+        <option value="us">United States</option>
+        <option value="vn">Vietnam</option>
+        <option value="jp">Japan</option>
+    </select>
+
+    <input type="checkbox" value="Option 1" checked> Option 1<br>
+    <input type="checkbox" value="Option 2" checked> Option 2<br>
+    <input type="checkbox" value="Option 3" checked> Option 3<br>
+
+    <input type="text" id="name" placeholder="Nhập tên">
+    <input type="text" id="address" placeholder="Nhập địa chỉ">
+
+    <table>
+        <tr><td>Dòng 1</td></tr>
+        <tr><td>Dòng 2</td></tr>
+        <tr><td>Dòng 3</td></tr>
+    </table>
+
+    <div class="vung">Content of region</div>
+
+    <div class="notification">Default notification message</div>
+
+    <script>
+        // 1. Ẩn hiện các block (div, p, h1,...)
+        $('div, p, h1').hide(); // Hide all div, p, h1 elements
+        $('div, p, h1').show(); // Show them again
+
+        // 2. Tìm tất cả các thẻ <input type="checkbox"> và hiển thị giá trị đang chọn (checked)
+        $('input[type="checkbox"]:checked').each(function() {
+            console.log($(this).val()); // Log the value of each checked checkbox
+        });
+
+        // 3. Tìm tất cả các thẻ <option> của thẻ <select id="country">
+        $('#country option').each(function() {
+            console.log($(this).text()); // Log the text of each option
+        });
+
+        // 4. Tìm các thẻ <img> đặt trong <div id="menu">
+        $('#menu img').each(function() {
+            console.log($(this).attr('src')); // Log the src attribute of each image in #menu
+        });
+
+        // 5. Tìm tất cả các thẻ <input type="text"> chưa nhập dữ liệu và gắn class error
+        $('input[type="text"]').each(function() {
+            if ($(this).val() === "") {
+                $(this).addClass('error');
+            }
+        });
+
+        // 6. Thay đổi kiểu dáng của các thành phần web
+        // Màu nền các hàng của bảng (thường và hover)
+        $('tr').css('background-color', '#fff8e1'); // Set default background color for table rows
+        $('tr').hover(function() {
+            $(this).css('background-color', '#ffeb3b'); // Set hover color
+        }, function() {
+            $(this).css('background-color', '#fff8e1'); // Reset background color
+        });
+
+        // Ảnh nền và đường kẻ cho các vùng
+        $('.vung').css({
+            'background-image': 'url("path/to/image.jpg")',
+            'border': '1px solid #ffeb3b'
+        });
+
+        // Nội dung các thông báo hay tùy biến
+        $('.notification').text('Nội dung thông báo hay tùy biến');
+    </script>
+</body>
+</html>

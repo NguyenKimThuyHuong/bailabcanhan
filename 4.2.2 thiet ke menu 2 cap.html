@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: #fff8e1; /* Màu nền trắng vàng nhạt */
+            font-family: Arial, sans-serif;
+            color: #000;
+        }
+        .menu_theloai {
+            background-color: #ffeb3b; /* Màu nền vàng cho thể loại menu chính */
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid #000;
+        }
+        .menu_nhom {
+            background-color: #333; /* Màu nền tối cho menu con */
+            color: #fff;
+            padding-left: 20px;
+            display: none;
+        }
+        .menu_nhom a {
+            color: #fff;
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+        }
+        .menu_nhom a:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu_theloai">Đời sống</div>
+    <div class="menu_nhom">
+        <a href="?idTL=15">Hoa hậu</a>
+        <a href="?idTL=16">Nghệ sĩ</a>
+        <a href="?idTL=17">Mỹ thuật</a>
+    </div>
+
+    <div class="menu_theloai">Giải trí</div>
+    <div class="menu_nhom">
+        <a href="?idTL=18">Âm nhạc</a>
+        <a href="?idTL=19">Thời trang</a>
+        <a href="?idTL=20">Điện ảnh</a>
+    </div>
+
+    <div class="menu_theloai">Thể thao</div>
+    <div class="menu_nhom">
+        <a href="?idTL=21">Bóng đá</a>
+        <a href="?idTL=22">Tennis</a>
+        <a href="?idTL=23">Các môn khác</a>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Ẩn tất cả các menu nhóm
+            $(".menu_nhom").hide();
+
+            // Gán sự kiện click lên menu_theloai để hiển thị menu nhóm
+            $(".menu_theloai").click(function () {
+                $(this).next(".menu_nhom").slideToggle();
+            });
+        });
+    </script>
+</body>
+</html>

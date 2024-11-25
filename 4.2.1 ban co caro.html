@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caro Game</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: #fff8e1; /* Màu nền trắng vàng nhạt */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #000;
+        }
+        .board-container {
+            display: inline-block;
+            margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td {
+            width: 40px;
+            height: 40px;
+            border: 1px solid black; /* Màu viền vàng */
+            text-align: center;
+            vertical-align: middle;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .btn-container {
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #ffeb3b; /* Màu nút vàng */
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #fdd835; /* Màu vàng đậm khi hover */
+        }
+        .even-row {
+            background-color: #fff8e1; /* Màu nền khác nhau cho dòng chẵn */
+        }
+    </style>
+</head>
+<body>
+    <h2>Caro Game</h2>
+    <div class="btn-container">
+        <button id="hide-btn">Hide</button>
+        <button id="show-btn">Show</button>
+        <button id="toggle-btn">Toggle</button>
+    </div>
+    <div class="board-container">
+        <table id="caro-board">
+            <tbody>
+                <!-- Tạo bàn cờ 10x10 -->
+                <script>
+                    for (let i = 0; i < 10; i++) {
+                        document.write('<tr class="' + (i % 2 === 0 ? 'even-row' : '') + '">');
+                        for (let j = 0; j < 10; j++) {
+                            document.write('<td></td>');
+                        }
+                        document.write('</tr>');
+                    }
+                </script>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            let currentPlayer = 'X';
+            // Ẩn, hiện, và toggle bàn cờ
+            $('#hide-btn').click(function() {
+                $('#caro-board').hide();
+            });
+            $('#show-btn').click(function() {
+                $('#caro-board').show();
+            });
+            $('#toggle-btn').click(function() {
+                $('#caro-board').toggle();
+            });
+
+            // click để đánh X và O xen kẽ
+            $('#caro-board td').click(function() {
+                if ($(this).text() === '') {
+                    $(this).text(currentPlayer);
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

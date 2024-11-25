@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Slideshow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffe0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #f1c40f;
+        }
+
+        .gallery {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-images {
+            width: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .images-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-images img {
+            width: 200px;
+            height: auto;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            background-color: #f1c40f;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background-color: #e2b007;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>GALLERY</h1>
+        <div class="gallery">
+            <div class="gallery-images">
+                <div class="images-wrapper">
+                    <!-- Add your images here -->
+                    <img src="C:\Users\admin\Downloads\z6047671933853_7254d5938ef89c4825173ac4dd245eaf.jpg" alt="Image 1">
+                    <img src="C:\Users\admin\Downloads\z6047671929895_0fc36131af78a649af7c592df835b9b7.jpg" alt="Image 2">
+                    <img src="C:\Users\admin\Downloads\z6047671929761_a76fc29e30114643226be1499ad735ea.jpg" alt="Image 3">
+                    <img src="C:\Users\admin\Downloads\z6047671929676_66f9eafbd2d72f25402f1b67f199382f.jpg" alt="Image 4">
+                    <img src="C:\Users\admin\Downloads\z6047671915632_91f3492c943eace6c62a0e2c5edd80ed.jpg" alt="Image 5">
+                    <img src="C:\Users\admin\Downloads\z6047671929895_0fc36131af78a649af7c592df835b9b7.jpg" alt="Image 5">
+                    <img src="C:\Users\admin\Downloads\z6047671933853_7254d5938ef89c4825173ac4dd245eaf.jpg" alt="Image 5">
+                    <img src="C:\Users\admin\Downloads\z6047671915632_91f3492c943eace6c62a0e2c5edd80ed.jpg" alt="Image 5">
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="prevButton">&laquo;</button>
+            <button id="nextButton">&raquo;</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const imagesWrapper = $('.images-wrapper');
+            const imageWidth = $('.gallery-images img').outerWidth(true);
+            let currentIndex = 0;
+
+            $('#nextButton').click(function() {
+                if (currentIndex < $('.gallery-images img').length - 3) {
+                    currentIndex++;
+                    imagesWrapper.css('transform', 'translateX(' + (-imageWidth * currentIndex) + 'px)');
+                }
+            });
+
+            $('#prevButton').click(function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    imagesWrapper.css('transform', 'translateX(' + (-imageWidth * currentIndex) + 'px)');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Dialog Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <style>
+        body {
+            background-color: #fff8e1; /* Màu nền trắng vàng nhạt */
+            font-family: Arial, sans-serif;
+            color: #000;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .dialog-container {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #ffeb3b; /* Đường viền màu vàng */
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ffeb3b; /* Màu nút vàng */
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #fdd835; /* Màu vàng đậm khi hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="dialog-container">
+        <h2>JQuery Dialog Example</h2>
+        <button id="open-dialog">Open Dialog</button>
+    </div>
+
+    <div id="mydialog" title="Basic Dialog">
+        <p>This is a basic dialog for error or confirmation messages.</p>
+    </div>
+
+    <div id="confirm-dialog" title="Confirmation">
+        <p>Are you sure you want to delete all items?</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Basic dialog setup
+            $("#mydialog").dialog({
+                autoOpen: false
+            });
+
+            // Custom dialog with effects
+            $("#confirm-dialog").dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                },
+                buttons: {
+                    "Delete all items": function() {
+                        $(this).dialog("close");
+                    },
+                    Cancel: function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+
+            // Event to open the basic dialog
+            $("#open-dialog").click(function() {
+                $("#confirm-dialog").dialog("open");
+            });
+        });
+    </script>
+</body>
+</html>

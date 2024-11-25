@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datepicker Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <style>
+        body {
+            background-color: #fff8e1; /* Màu nền trắng vàng nhạt */
+            font-family: Arial, sans-serif;
+            color: #000;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .datepicker-container {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #ffeb3b; /* Đường viền màu vàng */
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ffeb3b; /* Đường viền màu vàng */
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="datepicker-container">
+        <h2>JQuery Datepicker Demo</h2>
+        <input type="text" id="date" placeholder="Chọn ngày">
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Datepicker với định dạng thông thường
+            $("#date").datepicker();
+
+            // Datepicker với khoảng thời gian hiện thị từ 14 ngày trước đến 14 ngày sau
+            $("#date").datepicker("option", {
+                minDate: -14,
+                maxDate: 14
+            });
+
+            // Định dạng hiển thị ngày tháng năm kiểu dd-mm-yy
+            $("#date").datepicker("option", {
+                dateFormat: "dd-mm-yy"
+            });
+
+            // Hiển thị ô chọn tháng và năm
+            $("#date").datepicker("option", {
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: #fff8e1; /* Màu nền trắng vàng nhạt */
+            font-family: Arial, sans-serif;
+            color: #000;
+        }
+        .login-container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 2px solid #ffeb3b; /* Đường viền màu vàng */
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+        .login-container h2 {
+            text-align: center;
+            color: #ffeb3b; /* Màu chữ vàng */
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .input-group input {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ffeb3b; /* Đường viền màu vàng */
+            border-radius: 5px;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .success-message {
+            color: green;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffeb3b; /* Màu nút vàng */
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background-color: #fdd835; /* Màu vàng đậm khi hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="error-message" id="error-message"></div>
+        <div class="success-message" id="success-message"></div>
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Nhập username">
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Nhập password">
+        </div>
+        <button class="login-btn" id="login-btn">Login</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#login-btn').click(function() {
+                const username = $('#username').val();
+                const password = $('#password').val();
+                
+                // Kiểm tra username và password
+                if (username === "admin" && password === "admin") {
+                    $('#error-message').text("");
+                    $('#success-message').text("Chúc mừng, bạn đã đăng nhập thành công!");
+                    $('#login-btn').text('Logout');
+                    $('#username, #password').hide();
+                } else {
+                    $('#success-message').text("");
+                    $('#error-message').text("Sai thông tin đăng nhập!");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
